@@ -56,7 +56,7 @@ export default (request: http.IncomingMessage, response: http.ServerResponse) =>
                 }
             } else {
                 if (contentType === 'text/html') {
-                    const js: string = fs.readFileSync(`${libPath}Hey.js`, 'utf-8');
+                    const js: string = fs.readFileSync(`${libPath}Hey.js`, 'utf-8').toString().replace(':3334', config.http.wss_path);
                     content = content.replace('</head>', `<script>${js}</script></head>`);
                 }
                 response.writeHead(200, { 'Content-Type': contentType });
