@@ -24,3 +24,5 @@ data/*
 
 .env
 .tern*
+
+docker-compose.*.yml
