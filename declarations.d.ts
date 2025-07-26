@@ -5,7 +5,7 @@ declare module 'bog';
 declare module 'mongodb';
 declare module 'dotenv';
 declare module 'path';
-declare module '@slack/rtm-api';
+declare module '@slack/socket-mode';
 declare module '@slack/web-api';
 declare module 'ws';
 declare module 'git-clone-repo';

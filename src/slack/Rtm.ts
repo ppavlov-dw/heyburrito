@@ -24,7 +24,9 @@ class Rtm extends EventEmitter {
 
     listener(): void {
         log.info('Listening on slack messages');
-        this.rtm.on('message', (event: SlackEvent) => {
+        this.rtm.on('message', async ({ ack, body: { event } }: { ack: Function, body: { event: SlackEvent } }) => {
+            await ack();
+
             if ((!!event.subtype) && (event.subtype === 'channel_join')) {
                 log.info('Joined channel', event.channel);
             }

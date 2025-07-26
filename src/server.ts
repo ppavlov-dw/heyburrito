@@ -20,7 +20,7 @@ const init = async () => {
     await boot();
 };
 
-init().then(() => {
+init().then(async () => {
     log.info('Staring heyburrito');
 
     // Configure BurritoStore
@@ -29,7 +29,7 @@ init().then(() => {
     // Set and start slack services
     const { rtm, wbc } = slack;
 
-    rtm.start();
+    await rtm.start();
     RTMHandler.register(rtm);
     WBCHandler.register(wbc);
 
